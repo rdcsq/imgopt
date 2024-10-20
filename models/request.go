@@ -6,8 +6,8 @@ type ImageOptimizationRequest struct {
 }
 
 type ImageOptimizationRequestOptions struct {
-	Width         int            `json:"width" validate:"number"`
-	Height        int            `json:"height" validate:"number"`
+	Size          int            `json:"size" validate:"number"`
+	ResizeMode    string         `json:"resizeMode" validate:"oneof=up down force,omitempty"`
 	Format        string         `json:"format" validate:"oneof=webp"`
 	FormatOptions map[string]any `json:"formatOptions" validate:"omitempty"`
 	BucketId      string         `json:"bucketId" validate:"required"`

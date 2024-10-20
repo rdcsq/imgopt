@@ -118,7 +118,7 @@ func getWebpOptions(opts map[string]any) (*vips.WebpExportParams, error) {
 }
 
 func (iow *ImageOptimizationRequestWrapper) generateImage(imageData []byte, options models.ImageOptimizationRequestOptions) bool {
-	image, err := vips.NewThumbnailFromBuffer(imageData, options.Width, options.Height, vips.InterestingNone)
+	image, err := vips.NewThumbnailWithSizeFromBuffer(imageData, options.Size, options.Size, vips.InterestingNone, ParseResizeMode(options.ResizeMode))
 	if err != nil {
 		return false
 	}
@@ -147,6 +147,19 @@ func (iow *ImageOptimizationRequestWrapper) generateImage(imageData []byte, opti
 
 	log.Println("somehow got to an unsupported format.")
 	return false
+}
+
+func ParseResizeMode(mode string) vips.Size {
+	switch mode {
+	case "up":
+		return vips.SizeUp
+	case "down":
+		return vips.SizeDown
+	case "force":
+		return vips.SizeForce
+	default:
+		return vips.SizeBoth
+	}
 }
 
 func ErrorResponse(w http.ResponseWriter, code int, message string) {
