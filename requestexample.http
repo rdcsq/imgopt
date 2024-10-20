@@ -1,0 +1,14 @@
+POST /r
+
+{
+  "url": "somethingsomething.jpg",
+  "options": [
+    {
+      "width": 1280,
+      "height": 720,
+      "format": "webp",
+      "bucketId": "bucketAliasFromConfig",
+      "key": "destfilename.webp"
+    }
+  ]
+}

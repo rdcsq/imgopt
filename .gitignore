@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+*.test
+__debug*
+
+.testdata/
+config.json
+!config.example.json
+.DS_Store

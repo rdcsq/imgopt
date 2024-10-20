@@ -1,0 +1,22 @@
+{
+    "listenAddress": "127.0.0.1:3001",
+    "allowedTokens": [{ "alias": "tokenAlias", "token": "randomlyGeneratedString" }],
+    "defaultFormatConfig": {
+      "webp": {
+        "quality": 80,
+        "lossless": false
+      }
+    },
+    "registeredS3Buckets": {
+      "bucketAlias": {
+        "name": "bucketName",
+        "region": "auto",
+        "accessKey": "abc",
+        "secretKey": "def",
+        "endpoint": "https://somethingsomething.r2.cloudflarestorage.com",
+        "allowedAliases": ["tokenAlias"],
+        "usePathStyle": false
+      }
+    }
+  }
+  
